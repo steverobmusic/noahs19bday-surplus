@@ -19,7 +19,6 @@
             padding: 0;
             color: var(--text-color);
             text-align: center;
-            overflow: hidden; /* Prevent scrollbars during confetti animation */
         }
 
         header {
@@ -85,10 +84,16 @@
             color: var(--primary-color);
         }
 
-        .instructions ol {
-            text-align: left;
-            padding-left: 20px;
+        .instructions ul {
+            list-style-type: none;
+            padding: 0;
             margin: 10px 0;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .instructions li {
+            margin-bottom: 15px;
         }
 
         .instructions pre {
@@ -187,70 +192,24 @@
             pointer-events: none;
             z-index: 999;
         }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox-content {
-            background: #333;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .lightbox-content p {
-            font-size: 1.2rem;
-        }
-
-        .lightbox-content button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .lightbox-content button:hover {
-            background: var(--accent-color);
-        }
-
     </style>
 </head>
 <body>
     <div id="disclaimer" class="disclaimer-overlay">
-        <h2>Hi Noah! This page is only meant for YOU.</h2>
-        <p>Please do not share this link with anyone. Thank you, and have a great birthday!</p>
+        <h2>Hi Noah!</h2>
+        <p>This page is only meant for YOU only. Please do not share this link with anyone. Thank you, and have a great birthday!</p>
         <button onclick="closeDisclaimer()">I Understand</button>
     </div>
-
-    <!-- Confetti -->
     <canvas id="confetti" class="confetti"></canvas>
 
     <header>
         <h1>Happy 19th Birthday, Noah!</h1>
         <p>Welcome to your personalized gift experience!</p>
     </header>
-    
     <main>
         <div class="logo">
             <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/EGS.png" alt="Noah's Logo">
         </div>
-        
         <div class="content">
             <p>
                 We’re excited to celebrate your <strong>19th birthday</strong> by gifting you <strong>1TB of secure cloud storage</strong> and a <strong>custom email address</strong> for your personal or business use.
@@ -260,19 +219,75 @@
             </p>
             <p>From: <strong>James</strong></p>
         </div>
-
         <div class="instructions">
-            <h2>Step-by-Step Instructions</h2>
-            <ol>
-                <li>Step 1: Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a>.</li>
-                <li>Step 2: Log in using the following details:
-                    <pre>
+            <h2>Accessing Your Gift</h2>
+            <ul>
+                <li><strong>Step 1:</strong> Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a>.</li>
+                <li><strong>Step 2:</strong> Log in using the following details:</li>
+                <pre>
 Email: engineshedstudios@steverobmusic.com
 Temporary Password: X7kL2y1!
-                    </pre>
-                </li>
-                <li>Step 3: Change the password upon first login for security purposes.</li>
-                <li>Step 4: You might see a couple of setup screens as you log in (for example: "Give us a few moments to set things up...").</li>
-                <li>Once it's done, you should see a continue button—click it, and you’re good to go!</li>
-                <li>Step 5: Bookmark the link for quick access in the future or simply type "onedrive login" or "outlook login" in the browser whenever needed.</li>
-                <li>Step 6: Explore your 1TB storage and enjoy!</li
+                </pre>
+                <li><strong>Step 3:</strong> Change the password upon first login for security purposes.</li>
+                <li><strong>Step 4:</strong> You might see a couple of setup screens as you log in (for example: "Give us a few moments to set things up..."). Once it is done, you should see a continue button—click it, and you’re good to go!</li>
+                <div class="tutorial-images">
+                    <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYFIRSTRUN-STUDIOS%2CENGINE-SHED.png" alt="Setup Tutorial Step 1">
+                </div>
+                <li><strong>Step 5:</strong> Bookmark the link for quick access in the future or simply type "onedrive login" or "outlook login" in the browser whenever needed.</li>
+                <li><strong>Step 6:</strong> Explore your 1TB storage and enjoy!</li>
+            </ul>
+            <div class="tutorial-images">
+                <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/FINAL-STEP-COMPLETE-TT2-STUDIOS%252CENGINE-SHED.png" alt="Final Setup Complete">
+            </div>
+            <p>Once everything is good to go, you can start uploading files, or use it as a business email—or both, whatever is your preference!</p>
+        </div>
+    </main>
+    <footer>
+        <p>Have an amazing day, Noah! <a href="https://steverobmusic.com/" target="_blank">Visit us anytime!</a></p>
+    </footer>
+
+    <script>
+        // Handle disclaimer popup
+        function closeDisclaimer() {
+            document.getElementById('disclaimer').style.display = 'none';
+            startConfetti();
+        }
+
+        // Handle confetti
+        function startConfetti() {
+            const canvas = document.getElementById('confetti');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const confetti = [];
+            for (let i = 0; i < 100; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 5 + 5,
+                    color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+                    speedX: Math.random() * 3 - 1.5,
+                    speedY: Math.random() * 3 + 2
+                });
+            }
+
+            function drawConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                confetti.forEach(flake => {
+                    ctx.beginPath();
+                    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = flake.color;
+                    ctx.fill();
+                    flake.x += flake.speedX;
+                    flake.y += flake.speedY;
+                    if (flake.y > canvas.height) flake.y = -flake.radius;
+                });
+                requestAnimationFrame(drawConfetti);
+            }
+
+            drawConfetti();
+        }
+    </script>
+</body>
+</html>
