@@ -243,7 +243,7 @@ Password: X7kL2y1!
         // Handle disclaimer popup
         function closeDisclaimer() {
             document.getElementById('disclaimer').style.display = 'none';
-            startConfetti();
+            startConfetti();  // Start confetti after the popup is closed
         }
 
         // Handle confetti
@@ -254,44 +254,54 @@ Password: X7kL2y1!
             canvas.height = window.innerHeight;
 
             const confetti = [];
-            for (let i = 0; i < 150; i++) {
-                confetti.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 8 + 2,
-                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-                    velocity: Math.random() * 2 + 1
-                });
+            const colors = ['#ff0', '#f0f', '#0ff', '#f00', '#00f', '#0f0'];
+
+            function createConfetti() {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const size = Math.random() * 10 + 5;
+                const speed = Math.random() * 3 + 2;
+                const angle = Math.random() * 360;
+
+                confetti.push({ x, y, size, speed, angle });
             }
 
-            function draw() {
+            function drawConfetti() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                confetti.forEach(p => {
+
+                confetti.forEach((c, i) => {
                     ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
+                    ctx.arc(c.x, c.y, c.size, 0, Math.PI * 2);
+                    ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
                     ctx.fill();
+
+                    c.x += Math.cos(c.angle) * c.speed;
+                    c.y += Math.sin(c.angle) * c.speed;
+                    c.size *= 0.99;  // Slowly shrink the confetti
+
+                    if (c.size <= 0.5) {
+                        confetti.splice(i, 1);
+                    }
                 });
+
+                if (confetti.length > 0) {
+                    requestAnimationFrame(drawConfetti);
+                }
             }
 
-            function update() {
-                confetti.forEach(p => {
-                    p.y += p.velocity;
-                    if (p.y > canvas.height) p.y = -10;
-                });
+            for (let i = 0; i < 100; i++) {
+                createConfetti();
             }
 
-            let duration = 3000;
-            let start = null;
-            function animate(timestamp) {
-                if (!start) start = timestamp;
-                const elapsed = timestamp - start;
+            setTimeout(() => {
+                drawConfetti();
+            }, 50);
 
-                draw();
-                update();
-                if (elapsed < duration) requestAnimationFrame(animate);
-            }
-            requestAnimationFrame(animate);
+            // Stop the confetti after 3 seconds
+            setTimeout(() => {
+                confetti.length = 0;
+                canvas.style.display = 'none';
+            }, 3000);
         }
     </script>
 </body>
