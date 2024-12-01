@@ -5,115 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 19th Birthday, Noah!</title>
     <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --accent-color: #FF9800;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary-color);
             margin: 0;
             padding: 0;
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
         }
+
         header {
-            background-color: #4CAF50;
+            background-color: var(--primary-color);
             color: white;
-            padding: 20px 10px;
+            padding: 20px;
             width: 100%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+            animation: fadeIn 1s ease-out;
         }
+
         header p {
-            margin: 0;
+            margin: 5px 0 0 0;
             font-size: 1.2rem;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         main {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 20px;
             max-width: 800px;
             margin: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: slideIn 1s ease-out;
         }
-        .logo {
-            margin: 20px 0;
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
+
         .logo img {
             max-width: 150px;
+            margin: 20px auto;
+            display: block;
             border-radius: 50%;
+            border: 3px solid var(--primary-color);
         }
+
         .content p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.6;
+            margin: 10px 0;
         }
-        .instructions {
+
+        .content strong {
+            color: var(--accent-color);
+        }
+
+        .instructions h2 {
+            margin: 15px 0;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .instructions ol {
             text-align: left;
-            margin: 20px 0;
+            padding-left: 20px;
+            margin: 10px 0;
         }
+
         .instructions pre {
             background: #f8f9fa;
             padding: 10px;
             border-radius: 5px;
             overflow-x: auto;
+            color: #444;
+            font-size: 1rem;
         }
+
+        .instructions a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .instructions a:hover {
+            text-decoration: underline;
+        }
+
+        .tutorial-images img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .tutorial-images img:hover {
+            transform: scale(1.05);
+        }
+
         footer {
             margin-top: 20px;
             font-size: 0.9rem;
             color: #555;
         }
-        .tutorial-images img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 10px 0;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Happy 19th Birthday, Noah!</h1>
-        <p>Welcome to your exclusive birthday gift!</p>
+        <p>Welcome to your personalized gift experience!</p>
     </header>
     <main>
         <div class="logo">
-            <img src="logo.png" alt="Noah's Logo"> <!-- Replace with Noah's logo file -->
+            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/EGS.png" alt="Noah's Logo">
         </div>
         <div class="content">
             <p>
-                As a token of appreciation for everything you've done, we've created a special gift just for you:
-                <strong>1TB of secure cloud storage</strong> and a personalized email address to use for business or personal purposes.
+                We’re excited to celebrate your <strong>19th birthday</strong> by gifting you <strong>1TB of secure cloud storage</strong> and a <strong>custom email address</strong> for your personal or business use.
             </p>
             <p>
-                This gift ensures maximum privacy and convenience. Emails sent to this address will be securely forwarded to your personal Gmail,
-                ensuring no one knows your private email. Plus, you can use it on and off as you wish.
+                Your new email ensures <strong>privacy</strong> by forwarding messages securely to your Gmail account. Plus, you can use this service whenever you need, hassle-free.
             </p>
         </div>
         <div class="instructions">
-            <h2>How to Access Your Gift</h2>
+            <h2>Accessing Your Gift</h2>
             <ol>
-                <li>Visit <a href="https://steverobmusic.com/email-access">steverobmusic.com/email-access</a> or <a href="https://onedrive.steverobmusic.com">onedrive.steverobmusic.com</a>.</li>
-                <li>Sign in using the details below:
+                <li>Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a> or <a href="https://onedrive.steverobmusic.com" target="_blank">onedrive.steverobmusic.com</a>.</li>
+                <li>Log in using the following details:
                     <pre>
 Email: engineshedstudios@steverobmusic.com
 Password: X7kL2y1!
                     </pre>
                 </li>
-                <li>Change the password after logging in for security.</li>
-                <li>Explore your storage and enjoy!</li>
+                <li>Change the password upon first login for security purposes.</li>
+                <li>Explore your 1TB storage and enjoy!</li>
             </ol>
-            <p>If you need assistance, feel free to reach out to me!</p>
+            <p>If you need help, feel free to contact me anytime!</p>
         </div>
         <div class="tutorial-images">
-            <h2>Tutorial Images</h2>
-            <img src="image1.png" alt="Tutorial Step 1">
-            <img src="image2.png" alt="Tutorial Step 2">
+            <h2>Step-by-Step Guide</h2>
+            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYFIRSTRUN-STUDIOS%2CENGINE-SHED.png" alt="Tutorial: Setting Things Up">
+            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/FINAL-STEP-COMPLETE-TT2-STUDIOS%2CENGINE-SHED.png" alt="Tutorial: Final Step Completed">
         </div>
     </main>
     <footer>
-        <p>We hope you have an amazing day, Noah. Enjoy your gift!</p>
+        <p>Have an amazing day, Noah! Your gift is ready for you. <a href="https://steverobmusic.com/" target="_blank">Visit us anytime!</a></p>
     </footer>
 </body>
 </html>
