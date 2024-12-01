@@ -19,6 +19,7 @@
             padding: 0;
             color: var(--text-color);
             text-align: center;
+            overflow: hidden;
         }
 
         header {
@@ -35,29 +36,14 @@
             animation: fadeIn 1s ease-out;
         }
 
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 1.2rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         main {
+            margin: 20px auto;
             background: white;
             border-radius: 15px;
             padding: 20px;
             max-width: 800px;
-            margin: 20px auto;
             box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            position: relative;
         }
 
         .logo img {
@@ -74,39 +60,10 @@
             margin: 10px 0;
         }
 
-        .content strong {
-            color: var(--accent-color);
-        }
-
         .instructions h2 {
             margin: 15px 0;
             font-size: 1.5rem;
             color: var(--primary-color);
-        }
-
-        .instructions ol {
-            text-align: left;
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        .instructions pre {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            color: #444;
-            font-size: 1rem;
-        }
-
-        .instructions a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .instructions a:hover {
-            text-decoration: underline;
         }
 
         .tutorial-images img {
@@ -115,7 +72,6 @@
             margin: 20px 0;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: transform 0.3s ease;
         }
 
         .tutorial-images img:hover {
@@ -137,7 +93,6 @@
             text-decoration: underline;
         }
 
-        /* Disclaimer Popup */
         .disclaimer-overlay {
             position: fixed;
             top: 0;
@@ -150,7 +105,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 10;
+            text-align: center;
         }
 
         .disclaimer-overlay h2 {
@@ -161,44 +117,45 @@
         .disclaimer-overlay p {
             font-size: 1.2rem;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .disclaimer-overlay button {
-            background: var(--accent-color);
+            padding: 10px 20px;
+            background: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 20px;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
         }
 
         .disclaimer-overlay button:hover {
-            background: var(--primary-color);
+            background: var(--accent-color);
         }
 
-        /* Confetti */
         .confetti {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 999;
+            overflow: hidden;
+            z-index: 5;
         }
     </style>
 </head>
 <body>
     <div id="disclaimer" class="disclaimer-overlay">
-        <h2>Important Information</h2>
-        <p>This page contains private details for Noah. Please do not share this link with anyone. Thank you!</p>
+        <h2>Hi Noah! Happy Birthday!</h2>
+        <p>This page contains important information just for you. Please do not share this link with anyone. Thank you!</p>
         <button onclick="closeDisclaimer()">I Understand</button>
     </div>
-    <canvas id="confetti" class="confetti"></canvas>
+
+    <div id="confetti" class="confetti"></div>
 
     <header>
         <h1>Happy 19th Birthday, Noah!</h1>
-        <p>Welcome to your personalized gift experience!</p>
     </header>
     <main>
         <div class="logo">
@@ -211,7 +168,6 @@
             <p>
                 Your new email ensures <strong>privacy</strong> by forwarding messages securely to your Gmail account. Plus, you can use this service whenever you need, hassle-free.
             </p>
-            <p>From: <strong>James</strong></p>
         </div>
         <div class="instructions">
             <h2>Accessing Your Gift</h2>
@@ -224,10 +180,8 @@ Password: X7kL2y1!
                     </pre>
                 </li>
                 <li>Change the password upon first login for security purposes.</li>
-                <li>Bookmark the link for quick access in the future or simply type "onedrive login" or "outlook login" in the browser whenever needed.</li>
-                <li>Explore your 1TB storage and enjoy!</li>
+                <li>Bookmark this page or remember to type "Outlook login" or "OneDrive login" for quick access in the future.</li>
             </ol>
-            <p>If you need help, feel free to contact me anytime!</p>
         </div>
         <div class="tutorial-images">
             <h2>Step-by-Step Guide</h2>
@@ -240,58 +194,33 @@ Password: X7kL2y1!
     </footer>
 
     <script>
-        // Handle disclaimer popup
         function closeDisclaimer() {
-            document.getElementById('disclaimer').style.display = 'none';
-            startConfetti();
+            document.getElementById("disclaimer").style.display = "none";
+            playConfetti();
         }
 
-        // Handle confetti
-        function startConfetti() {
-            const canvas = document.getElementById('confetti');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            const confetti = [];
+        function playConfetti() {
+            const confettiContainer = document.getElementById("confetti");
             for (let i = 0; i < 150; i++) {
-                confetti.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 8 + 2,
-                    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
-                    velocity: Math.random() * 2 + 1
-                });
+                const confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.width = "10px";
+                confetti.style.height = "10px";
+                confetti.style.backgroundColor = getRandomColor();
+                confetti.style.top = `${Math.random() * 100}%`;
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.animation = `fall 3s ease-out`;
+                confetti.style.opacity = 0.9;
+                confettiContainer.appendChild(confetti);
             }
+            setTimeout(() => {
+                confettiContainer.innerHTML = "";
+            }, 3000);
+        }
 
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                confetti.forEach(p => {
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color;
-                    ctx.fill();
-                });
-            }
-
-            function update() {
-                confetti.forEach(p => {
-                    p.y += p.velocity;
-                    if (p.y > canvas.height) p.y = -10;
-                });
-            }
-
-            let duration = 3000;
-            let start = null;
-            function animate(timestamp) {
-                if (!start) start = timestamp;
-                const elapsed = timestamp - start;
-
-                draw();
-                update();
-                if (elapsed < duration) requestAnimationFrame(animate);
-            }
-            requestAnimationFrame(animate);
+        function getRandomColor() {
+            const colors = ["#FF5733", "#33FF57", "#5733FF", "#FFC300", "#C70039"];
+            return colors[Math.floor(Math.random() * colors.length)];
         }
     </script>
 </body>
