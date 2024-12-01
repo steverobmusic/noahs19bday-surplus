@@ -199,13 +199,13 @@
             height: 100%;
             pointer-events: none;
             z-index: 9998;
+            display: none;
         }
 
         .confetti div {
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: #FF9800;
             border-radius: 50%;
             animation: fall 3s infinite;
         }
@@ -214,6 +214,12 @@
             0% { transform: translateY(0) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
+
+        .red { background-color: red; }
+        .blue { background-color: blue; }
+        .green { background-color: green; }
+        .yellow { background-color: yellow; }
+        .purple { background-color: purple; }
     </style>
 </head>
 <body>
@@ -264,7 +270,7 @@ Password: X7kL2y1!
         </div>
         <div class="tutorial-images">
             <h2>Step-by-Step Guide</h2>
-            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYFIRSTRUN-STUDIOS%2CENGINE-SHED.png" alt="Tutorial: Setting Things Up">
+            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYFIRSTRUN-STUDIOS%2CENGINE-SHED.png" alt="Tutorial: Setting up Your Email">
             <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYSTUDIOPICS%2C%20NOAH.png" alt="Tutorial: Customizing Your Setup">
         </div>
     </main>
@@ -281,21 +287,40 @@ Password: X7kL2y1!
         // Close the overlay when the button is clicked
         document.getElementById('closeOverlayBtn').onclick = () => {
             document.getElementById('overlay').classList.remove('show');
+            startConfetti();
         };
 
-        // Generate confetti effect
-        function generateConfetti() {
+        let confettiTimeout;
+
+        // Start confetti animation
+        function startConfetti() {
             const confettiContainer = document.getElementById('confetti');
+            confettiContainer.style.display = 'block';
+
+            // Generate colorful confetti
             for (let i = 0; i < 100; i++) {
                 const confettiPiece = document.createElement('div');
+                const colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+                confettiPiece.classList.add(colors[Math.floor(Math.random() * colors.length)]);
                 confettiPiece.style.left = Math.random() * 100 + 'vw';
                 confettiPiece.style.animationDuration = Math.random() * 2 + 3 + 's';
                 confettiContainer.appendChild(confettiPiece);
             }
+
+            // Stop confetti after 3 seconds
+            confettiTimeout = setTimeout(() => {
+                confettiContainer.style.display = 'none';
+            }, 3000);
         }
 
-        // Call confetti generator
-        generateConfetti();
+        // Follow cursor with confetti
+        document.addEventListener('mousemove', (e) => {
+            const confetti = document.querySelectorAll('.confetti div');
+            confetti.forEach(piece => {
+                piece.style.left = e.pageX + 'px';
+                piece.style.top = e.pageY + 'px';
+            });
+        });
     </script>
 </body>
 </html>
