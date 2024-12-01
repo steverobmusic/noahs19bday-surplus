@@ -5,201 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 19th Birthday, Noah!</title>
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #f4f4f4;
-            --text-color: #333;
-            --accent-color: #FF9800;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--secondary-color);
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            text-align: center;
-            display: none; /* Initially hidden for disclaimer popup */
-        }
-
-        #disclaimer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            z-index: 10;
-        }
-
-        #disclaimer p {
-            max-width: 600px;
-            margin: 20px;
             text-align: center;
-            font-size: 1.2rem;
-            line-height: 1.6;
         }
-
-        #disclaimer button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #disclaimer button:hover {
-            background-color: var(--accent-color);
-        }
-
         header {
-            background-color: var(--primary-color);
+            background-color: #4CAF50;
             color: white;
-            padding: 20px;
+            padding: 20px 10px;
             width: 100%;
         }
-
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
         main {
             background: white;
-            border-radius: 15px;
+            border-radius: 10px;
             padding: 20px;
             max-width: 800px;
-            margin: 20px auto;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
+        .logo {
+            margin: 20px 0;
+        }
         .logo img {
             max-width: 150px;
-            margin: 20px auto;
-            display: block;
             border-radius: 50%;
-            border: 3px solid var(--primary-color);
         }
-
+        .content p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
         .instructions {
+            text-align: left;
             margin: 20px 0;
         }
-
-        .tutorial {
-            margin: 20px 0;
+        .instructions pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
         }
-
-        .tutorial img {
-            max-width: 100%;
-            border-radius: 10px;
-            cursor: pointer;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .tutorial img:hover {
-            transform: scale(1.05);
-        }
-
         footer {
             margin-top: 20px;
             font-size: 0.9rem;
             color: #555;
         }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
+        .tutorial-images img {
+            max-width: 100%;
             border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        .popup h2 {
             margin: 10px 0;
-            color: var(--primary-color);
-        }
-
-        .popup p {
-            font-size: 1rem;
-            margin: 10px 0;
-        }
-
-        .popup button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <!-- Disclaimer Popup -->
-    <div id="disclaimer">
-        <p>
-            This page contains important information and instructions. Please do not share this link with anyone outside. Thank you for your cooperation.
-        </p>
-        <button onclick="startPage()">I Understand</button>
-    </div>
-
-    <!-- Main Content -->
     <header>
         <h1>Happy 19th Birthday, Noah!</h1>
+        <p>Welcome to your exclusive birthday gift!</p>
     </header>
     <main>
         <div class="logo">
-            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/EGS.png" alt="Noah's Logo">
+            <img src="logo.png" alt="Noah's Logo"> <!-- Replace with Noah's logo file -->
+        </div>
+        <div class="content">
+            <p>
+                As a token of appreciation for everything you've done, we've created a special gift just for you:
+                <strong>1TB of secure cloud storage</strong> and a personalized email address to use for business or personal purposes.
+            </p>
+            <p>
+                This gift ensures maximum privacy and convenience. Emails sent to this address will be securely forwarded to your personal Gmail,
+                ensuring no one knows your private email. Plus, you can use it on and off as you wish.
+            </p>
         </div>
         <div class="instructions">
-            <p>Your gift includes:</p>
-            <ul>
-                <li>1TB secure cloud storage</li>
-                <li>Custom email forwarding to Gmail</li>
-            </ul>
+            <h2>How to Access Your Gift</h2>
+            <ol>
+                <li>Visit <a href="https://steverobmusic.com/email-access">steverobmusic.com/email-access</a> or <a href="https://onedrive.steverobmusic.com">onedrive.steverobmusic.com</a>.</li>
+                <li>Sign in using the details below:
+                    <pre>
+Email: engineshedstudios@steverobmusic.com
+Password: X7kL2y1!
+                    </pre>
+                </li>
+                <li>Change the password after logging in for security.</li>
+                <li>Explore your storage and enjoy!</li>
+            </ol>
+            <p>If you need assistance, feel free to reach out to me!</p>
         </div>
-        <div class="tutorial">
-            <h2>Step-by-Step Tutorial</h2>
-            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/BRARYFIRSTRUN-STUDIOS%2CENGINE-SHED.png" alt="Step 1: Setting Things Up" onclick="showPopup('Step 1', 'This is the setup phase where you configure everything for your cloud storage.')">
-            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/FINAL-STEP-COMPLETE-TT2-STUDIOS%2CENGINE-SHED.png" alt="Step 2: Final Step Completed" onclick="showPopup('Step 2', 'This is the final step, confirming everything works! Enjoy your gift.')">
+        <div class="tutorial-images">
+            <h2>Tutorial Images</h2>
+            <img src="image1.png" alt="Tutorial Step 1">
+            <img src="image2.png" alt="Tutorial Step 2">
         </div>
     </main>
     <footer>
-        <p>Do not share this page link. Visit <a href="https://steverobmusic.com/" target="_blank">steverobmusic.com</a> for support.</p>
+        <p>We hope you have an amazing day, Noah. Enjoy your gift!</p>
     </footer>
-
-    <!-- Popup for Tutorial Images -->
-    <div class="popup" id="tutorialPopup">
-        <h2 id="popupTitle"></h2>
-        <p id="popupContent"></p>
-        <button onclick="closePopup()">Close</button>
-    </div>
-
-    <script>
-        function startPage() {
-            document.getElementById('disclaimer').style.display = 'none';
-            document.body.style.display = 'block';
-        }
-
-        function showPopup(title, content) {
-            document.getElementById('popupTitle').innerText = title;
-            document.getElementById('popupContent').innerText = content;
-            document.getElementById('tutorialPopup').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('tutorialPopup').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
