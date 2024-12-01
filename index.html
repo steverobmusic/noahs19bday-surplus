@@ -84,10 +84,16 @@
             color: var(--primary-color);
         }
 
-        .instructions ol {
-            text-align: left;
-            padding-left: 20px;
+        .instructions ul {
+            list-style-type: none;
+            padding: 0;
             margin: 10px 0;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .instructions li {
+            margin-bottom: 15px;
         }
 
         .instructions pre {
@@ -190,8 +196,8 @@
 </head>
 <body>
     <div id="disclaimer" class="disclaimer-overlay">
-        <h2>Important Information</h2>
-        <p>This page contains private details for Noah. Please do not share this link with anyone. Thank you!</p>
+        <h2>Hi Noah!</h2>
+        <p>This page is only meant for YOU only. Please do not share this link with anyone. Thank you, and have a great birthday!</p>
         <button onclick="closeDisclaimer()">I Understand</button>
     </div>
     <canvas id="confetti" class="confetti"></canvas>
@@ -215,19 +221,18 @@
         </div>
         <div class="instructions">
             <h2>Accessing Your Gift</h2>
-            <ol>
-                <li>Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a>.</li>
-                <li>Log in using the following details:
-                    <pre>
+            <ul>
+                <li><strong>Step 1:</strong> Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a>.</li>
+                <li><strong>Step 2:</strong> Log in using the following details:</li>
+                <pre>
 Email: engineshedstudios@steverobmusic.com
-Password: X7kL2y1!
-                    </pre>
-                </li>
-                <li>Change the password upon first login for security purposes.</li>
-                <li>You might see a couple of setup screens as you login (you might see one like 'Give us a few moments to set things up...'). Once it is done, you should see a continue button and there you go!</li>
-                <li>Bookmark the link for quick access in the future or simply type "onedrive login" or "outlook login" in the browser whenever needed.</li>
-                <li>Explore your 1TB storage and enjoy!</li>
-            </ol>
+Temporary Password: X7kL2y1!
+                </pre>
+                <li><strong>Step 3:</strong> Change the password upon first login for security purposes.</li>
+                <li><strong>Step 4:</strong> You might see a couple of setup screens as you log in (for example: "Give us a few moments to set things up..."). Once it's done, you should see a continue button—click it, and you’re good to go!</li>
+                <li><strong>Step 5:</strong> Bookmark the link for quick access in the future or simply type "onedrive login" or "outlook login" in the browser whenever needed.</li>
+                <li><strong>Step 6:</strong> Explore your 1TB storage and enjoy!</li>
+            </ul>
             <p>If you need help, feel free to contact me anytime!</p>
         </div>
         <div class="tutorial-images">
@@ -255,11 +260,11 @@ Password: X7kL2y1!
             canvas.height = window.innerHeight;
 
             const confetti = [];
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < 100; i++) {
                 confetti.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    radius: Math.random() * 8 + 2,
+                    radius: Math.random() * 5 + 5,
                     color: `hsl(${Math.random() * 360}, 100%, 70%)`,
                     speedX: Math.random() * 3 - 1.5,
                     speedY: Math.random() * 3 + 2
