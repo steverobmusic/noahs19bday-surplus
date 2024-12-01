@@ -290,8 +290,6 @@ Password: X7kL2y1!
             startConfetti();
         };
 
-        let confettiTimeout;
-
         // Start confetti animation
         function startConfetti() {
             const confettiContainer = document.getElementById('confetti');
@@ -308,19 +306,10 @@ Password: X7kL2y1!
             }
 
             // Stop confetti after 3 seconds
-            confettiTimeout = setTimeout(() => {
+            setTimeout(() => {
                 confettiContainer.style.display = 'none';
             }, 3000);
         }
-
-        // Follow cursor with confetti
-        document.addEventListener('mousemove', (e) => {
-            const confetti = document.querySelectorAll('.confetti div');
-            confetti.forEach(piece => {
-                piece.style.left = e.pageX + 'px';
-                piece.style.top = e.pageY + 'px';
-            });
-        });
     </script>
 </body>
 </html>
