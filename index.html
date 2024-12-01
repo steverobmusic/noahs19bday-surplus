@@ -5,136 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 19th Birthday, Noah!</title>
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #f4f4f4;
-            --text-color: #333;
-            --accent-color: #FF9800;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--secondary-color);
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             text-align: center;
+            color: #333;
         }
 
         header {
-            background-color: var(--primary-color);
+            background-color: #3498db;
             color: white;
-            padding: 20px;
-            width: 100%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            font-size: 2rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            animation: fadeIn 1s ease-out;
-        }
-
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 1.2rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         main {
-            background: white;
-            border-radius: 15px;
+            margin: 30px auto;
             padding: 20px;
             max-width: 800px;
-            margin: 20px;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .logo img {
-            max-width: 150px;
-            margin: 20px auto;
-            display: block;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
 
         .content p {
             font-size: 1.1rem;
             line-height: 1.6;
-            margin: 10px 0;
         }
 
         .content strong {
-            color: var(--accent-color);
+            color: #ff9800;
+        }
+
+        .instructions {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
         .instructions h2 {
-            margin: 15px 0;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            color: #3498db;
         }
 
-        .instructions ol {
-            text-align: left;
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        .instructions pre {
-            background: #f8f9fa;
-            padding: 10px;
+        .button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
             border-radius: 5px;
-            overflow-x: auto;
-            color: #444;
-            font-size: 1rem;
-        }
-
-        .instructions a {
-            color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
         }
 
-        .instructions a:hover {
-            text-decoration: underline;
-        }
-
-        .tutorial-images img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .tutorial-images img:hover {
-            transform: scale(1.05);
+        .button:hover {
+            background-color: #2980b9;
         }
 
         footer {
             margin-top: 20px;
             font-size: 0.9rem;
-            color: #555;
+            color: #777;
         }
 
         footer a {
-            color: var(--primary-color);
+            color: #3498db;
             text-decoration: none;
         }
 
@@ -142,62 +85,7 @@
             text-decoration: underline;
         }
 
-        /* Popup and Disclaimer styling */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s;
-        }
-
-        .popup.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .popup-content {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 80%;
-        }
-
-        .popup-content h2 {
-            font-size: 1.8rem;
-            margin: 10px 0;
-        }
-
-        .popup-content p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        .popup-content button {
-            background-color: var(--primary-color);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .popup-content button:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* Confetti styling */
+        /* Confetti effects */
         .confetti {
             position: absolute;
             top: 0;
@@ -205,7 +93,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 9998;
+            z-index: 999;
         }
 
         .confetti div {
@@ -213,65 +101,66 @@
             background-color: #FFEB3B;
             width: 10px;
             height: 10px;
-            animation: confetti-fall 3s ease-in-out forwards;
+            animation: confetti-fall 2s ease-in-out infinite;
         }
 
         @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Happy 19th Birthday, Noah!</h1>
-        <p>Welcome to your personalized gift experience!</p>
-    </header>
 
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <h2>Hi Noah! Happy Birthday!</h2>
-            <p>This page contains important information and instructions for your gift. Please do not share this link with anyone.</p>
-            <button onclick="closePopup()">Close</button>
-        </div>
+<header>
+    <h1>Happy 19th Birthday, Noah!</h1>
+</header>
+
+<main>
+    <div class="content">
+        <p>We’ve got a special gift for you—<strong>1TB cloud storage</strong> and a custom email address!</p>
+        <p>Your new email forwards messages to your Gmail, keeping it secure. You can change it to any name (like <strong>noah@steverobmusic.com</strong>) and even add aliases for convenience!</p>
+        <p>If you ever want to deactivate it, just message me! It’ll stay active unless you ask otherwise.</p>
     </div>
 
-    <main>
-        <div class="logo">
-            <img src="https://steverob.sirv.com/Noah19BD-TEMPHASH/EGS.png" alt="Noah's Logo">
-        </div>
-        <div class="content">
-            <p>
-                We’re excited to celebrate your <strong>19th birthday</strong> by gifting you <strong>1TB of secure cloud storage</strong> and a <strong>custom email address</strong> for your personal or business use.
-            </p>
-            <p>
-                Your new email ensures privacy by forwarding messages securely to your Gmail account. Plus, you can use this service whenever you need, hassle-free.
-            </p>
-            <p>
-                You never know what people can do with that email, especially if it's linked to something important. Just saying. And you'll still get emails even if people send them to <strong>engineshedstudios@steverobmusic.com</strong> to your personal Gmail. It would provide a sense of security.
-            </p>
-            <p>
-                You can change the <strong>engineshedstudios@steverobmusic.com</strong> part of the email to anything else you want, such as <strong>noah@steverobmusic.com</strong> or something custom! You can also add aliases so instead of logging into multiple emails, you can have <strong>noah@steverobmusic.com</strong> but people can also email <strong>engineshedstudios@steverobmusic.com</strong> and you'll still get the email regardless of where it is sent to or what you choose.
-            </p>
-            <p>
-                The best part is that you can easily close this email anytime by just messaging me. You don’t even have to use it for months – it’ll stay active until you ask for it to be deactivated.
-            </p>
-        </div>
-        <div class="instructions">
-            <h2>Accessing Your Gift</h2>
-            <ol>
-                <li>Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a></li>
-                <li>Log in using the following details:
-                    <pre>
-Email: engineshedstudios@steverobmusic.com
-Password: X7kL2y1!
-                    </pre>
-                </li>
-                <li>Change the password upon first login for security purposes.</li>
-                <li>You might see a couple of setup screens as you log in (you might see one like 'give us a few
+    <div class="instructions">
+        <h2>How to Access Your Gift</h2>
+        <p>Visit: <a href="https://steverobmusic.com/email-access" target="_blank">steverobmusic.com/email-access</a></p>
+        <p>Login with: <strong>engineshedstudios@steverobmusic.com</strong></p>
+        <p>Password: <strong>X7kL2y1!</strong></p>
+        <p>Change the password once you log in. You may see a few setup screens—just click <strong>Continue</strong> and you’re good to go!</p>
+        <a href="https://steverobmusic.com/email-access" class="button" target="_blank">Go to Your Gift</a>
+    </div>
+
+    <footer>
+        <p>Need help? <a href="mailto:steverob@steverobmusic.com">Contact Me</a></p>
+    </footer>
+
+    <!-- Confetti -->
+    <div class="confetti">
+        <div style="top: 20%; left: 25%;"></div>
+        <div style="top: 10%; left: 50%;"></div>
+        <div style="top: 30%; left: 70%;"></div>
+        <div style="top: 60%; left: 10%;"></div>
+        <div style="top: 40%; left: 85%;"></div>
+    </div>
+
+</main>
+
+<script>
+    // Add confetti animation for 3 seconds
+    setTimeout(function() {
+        const confetti = document.querySelectorAll('.confetti div');
+        confetti.forEach(function(c) {
+            c.style.animation = 'confetti-fall 3s ease-in-out infinite';
+        });
+    }, 100);
+
+    // Make confetti disappear after 3 seconds
+    setTimeout(function() {
+        document.querySelector('.confetti').style.display = 'none';
+    }, 3000);
+</script>
+
+</body>
+</html>
