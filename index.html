@@ -322,40 +322,40 @@ Temporary Password: X7kL2y1!
                 confettiPieces.push({ x, y, size, speed, color });
             }
 
-            for (let i = 0; i < 150; i++) {
-                createConfettiPiece();
-            }
+        for (let i = 0; i < 100; i++) {
+            createConfettiPiece();
+        }
 
-            function animateConfetti() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                confettiPieces.forEach((piece, index) => {
-                    ctx.beginPath();
-                    ctx.arc(piece.x, piece.y, piece.size, 0, 2 * Math.PI);
-                    ctx.fillStyle = piece.color;
-                    ctx.fill();
-                    piece.y += piece.speed;
-                    if (piece.y > canvas.height) {
-                        confettiPieces.splice(index, 1);
-                        createConfettiPiece();
-                    }
-                });
-
-                if (confettiPieces.length > 0) {
-                    requestAnimationFrame(animateConfetti);
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confettiPieces.forEach((piece, index) => {
+                ctx.beginPath();
+                ctx.arc(piece.x, piece.y, piece.size, 0, 2 * Math.PI);
+                ctx.fillStyle = piece.color;
+                ctx.fill();
+                piece.y += piece.speed;
+                if (piece.y > canvas.height) {
+                    confettiPieces.splice(index, 1);
+                    createConfettiPiece();
                 }
+            });
+
+            if (confettiPieces.length > 0) {
+                requestAnimationFrame(animateConfetti);
             }
-
-            animateConfetti();
-            setTimeout(() => { canvas.style.display = "none"; }, 3000); // stop confetti after 3 seconds
         }
 
-        function openLightbox() {
-            document.getElementById("lightbox").style.display = "flex";
-        }
+        animateConfetti();
+        setTimeout(() => { canvas.style.display = "none"; }, 3000); // stop confetti after 3 seconds
+    }
 
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-        }
-    </script>
+    function openLightbox() {
+        document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
 </body>
 </html>
